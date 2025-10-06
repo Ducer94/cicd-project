@@ -24,3 +24,4 @@ artifacts:
     - '**/*'
   base-directory: dist-server
   name: compiled.zip
+
