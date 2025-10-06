@@ -1,0 +1,11 @@
+phases:
+  build:
+    commands:
+      - npm install
+      - npm run build
+      - npm run test
+
+artifacts:
+  files: "**/*"
+  base-directory: ./
+  name: compiled.zip
