@@ -41,14 +41,15 @@
     "testEnvironment": "node"
   },
   "scripts": {
-    "start": "npm run prod",
-    "build": "npm run clean && npm run transpile",
-    "server": "node ./dist-server/bin/www",
-    "dev": "NODE_ENV=development npm run server",
-    "prod": "NODE_ENV=production npm run server",
-    "transpile": "if [ -d ./server ]; then babel ./server --out-dir dist-server; elif [ -d ./src ]; then babel ./src --out-dir dist-server; else echo 'No valid source directory found'; exit 1; fi",
-    "clean": "rm -rf dist-server",
-    "watch:dev": "nodemon",
-    "test": "jest"
-  }
+  "start": "npm run prod",
+  "build": "npm run clean && npm run transpile",
+  "server": "node ./dist-server/bin/www",
+  "dev": "NODE_ENV=development npm run server",
+  "prod": "NODE_ENV=production npm run server",
+  "transpile": "mkdir -p dist-server && if [ -d ./server ]; then babel ./server --out-dir dist-server; elif [ -d ./src ]; then babel ./src --out-dir dist-server; elif [ -f ./app.js ]; then babel ./app.js --out-file dist-server/app.js; else echo 'No valid source found'; fi",
+  "clean": "rm -rf dist-server",
+  "watch:dev": "nodemon",
+  "test": "jest"
+}
+
 }
